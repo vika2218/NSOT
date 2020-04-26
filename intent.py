@@ -209,6 +209,7 @@ def sdn_disconnected_sw():
         if nsot[i]['Connected'] == 'False':
             disconnected_list.append(i.rstrip())
     print("Disconnected switches--->",disconnected_list)
+    return("Disconnected switches--->",disconnected_list)
     #conn.disconnect()
 
 def helper_ospf():

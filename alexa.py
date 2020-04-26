@@ -26,8 +26,8 @@ def intents():
         <a href="ospf_gui" class="button">Configure OSPF</a>  <br/> 
         <a href="hostname_gui" class="button">Configure Hostname</a>  <br/>  
         <a href="github_gui" class="button">Back NSOT to GITHUB</a>  
-        <br/> <a href="topology" class="button">Push Flow Entries</a> <br/>  
-        <a href="paths" class="button">Show disconnected switches</a> <br/> 
+        <br/> <a href="pushflow_gui" class="button">Push Flow Entries</a> <br/>  
+        <a href="dis_gui" class="button">Show disconnected switches</a> <br/> 
         <a href="topology" class="button">Show down interface</a> </div> 
        </body>
       </html>
@@ -49,10 +49,15 @@ def github_gui():
    helper_github()
    return "Pushed Files to GitHub"
 
-@app.route('/ospf_gui1')
-def ospf_gui1():
-   helper_ospf()
-   return "Configured OSPF"
+@app.route('/pushflow_gui')
+def pushflow_gui():
+   helper_pushfe()
+   return "Pushed flow entries"
+
+@app.route('/dis_gui')
+def dis_gui():
+   a = sdn_disconnected_sw()
+   return a
 
 @app.route('/ospf_g1ui')
 def ospf_g1ui():
