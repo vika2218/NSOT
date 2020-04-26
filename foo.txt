@@ -1,0 +1,29 @@
+Number of neighbors for SNS-R1 is 2Number of neighbors for SNS-R2 is 2Number of neighbors for SNS-R3 is 2Self-healing started at :  <br/>2020-04-26 06:52:44 GMT <br/>Number of neighbors for SNS-R1 is 2Number of neighbors for SNS-R2 is 2Number of neighbors for SNS-R3 is 2Self-healing started at :  <br/>2020-04-26 06:54:32 GMT <br/>Number of neighbors for SNS-R1 is 1Number of neighbors for SNS-R2 is 2Number of neighbors for SNS-R3 is 2Self-healing started at :  <br/>2020-04-26 07:00:21 GMT <br/>Self-healing started at :  <br/>2020-04-26 07:00:23 GMT <br/>Number of neighbors for SNS-R1 is 2Number of neighbors for SNS-R2 is 2Number of neighbors for SNS-R3 is 2Number of neighbors for SNS-R1 is 2Number of neighbors for SNS-R2 is 2Number of neighbors for SNS-R3 is 2Self-healing started at :  <br/>2020-04-26 07:02:30 GMT <br/>Self-healing started at :  <br/>2020-04-26 07:02:46 GMT <br/>Self-healing started at :  <br/>2020-04-26 07:02:47 GMT <br/>
+Number of neighbors for SNS-R1 is 2
+Number of neighbors for SNS-R2 is 2
+Number of neighbors for SNS-R3 is 2
+ List of routers having OSPF misconfiguration: []
+Number of neighbors for SNS-R1 is 2
+Number of neighbors for SNS-R2 is 2
+Number of neighbors for SNS-R3 is 2
+ List of routers having OSPF misconfiguration: []
+Number of neighbors for SNS-R1 is 2
+Number of neighbors for SNS-R2 is 2
+Number of neighbors for SNS-R3 is 2
+ List of routers having OSPF misconfiguration: []Self-healing started at :  <br/>2020-04-26 07:03:18 GMT <br/>Self-healing started at :  <br/>2020-04-26 07:13:14 GMT <br/>Disconnected switches--->[] <br/>
+Number of neighbors for SNS-R1 is 2 <br/>
+Number of neighbors for SNS-R2 is 2 <br/>
+Number of neighbors for SNS-R3 is 2 <br/>
+ List of routers having OSPF misconfiguration: [] <br/>Self-healing started at :  <br/>2020-04-26 07:17:24 GMT <br/>Disconnected switches--->[] <br/>Self-healing started at :  <br/>2020-04-26 07:17:25 GMT <br/>Disconnected switches--->[] <br/>Self-healing started at :  <br/>2020-04-26 07:17:35 GMT <br/>Disconnected switches--->['s2'] <br/>There was an mismatch in the controller ip or port number hence ins2self healing started <br/>configuration done on: SNS-R1 <br/>
+Number of neighbors for SNS-R1 is 1 <br/>
+Number of neighbors for SNS-R2 is 2 <br/>
+Number of neighbors for SNS-R3 is 2 <br/>
+ List of routers having OSPF misconfiguration: ['SNS-R1'] <br/>configuration done on: SNS-R1 <br/>configuration done on: SNS-R3 <br/>
+Number of neighbors for SNS-R1 is 1 <br/>
+Number of neighbors for SNS-R2 is 2 <br/>
+Number of neighbors for SNS-R3 is 1 <br/>
+ List of routers having OSPF misconfiguration: ['SNS-R1', 'SNS-R3'] <br/>configuration done on: SNS-R1 <br/>configuration done on: SNS-R3 <br/>
+Number of neighbors for SNS-R1 is 1 <br/>
+Number of neighbors for SNS-R2 is 2 <br/>
+Number of neighbors for SNS-R3 is 1 <br/>
+ List of routers having OSPF misconfiguration: ['SNS-R1', 'SNS-R3'] <br/>Self-healing started at :  <br/>2020-04-26 07:20:35 GMT <br/>Disconnected switches--->[] <br/>Self-healing started at :  <br/>2020-04-26 07:20:37 GMT <br/>Disconnected switches--->[] <br/>

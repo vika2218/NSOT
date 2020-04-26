@@ -213,7 +213,10 @@ def sdn_disconnected_sw():
     print("Disconnected switches--->",disconnected_list)
     return("Disconnected switches--->" + str(disconnected_list))
     #conn.disconnect()
-
+def security():
+    subprocess.call("ssh sns@192.168.0.3 sudo python3 security.py &", shell=True)
+    print("Security module started on SDN Controller")
+    return 0
 def helper_ospf():
     j = read_csv()
     process_list=[]
@@ -269,6 +272,11 @@ def helper_github():
         except:
                 pass
     print("\nNSOT pushed successfully to GitHub")
+
+
+def helper_security():
+    p = Process(target=security)
+    p.start()
 
 #sh_down_int()
 #jsonfile.write(out)

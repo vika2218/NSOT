@@ -1,0 +1,118 @@
+INFO:root:Self-healing started at :  <br/>
+INFO:root:2020-04-26 06:39:12 GMT <br/>
+INFO:paramiko.transport:Connected (version 2.0, client Cisco-1.25)
+INFO:paramiko.transport:Authentication (password) successful!
+INFO:root:Number of neighbors for SNS-R1 is 2
+INFO:paramiko.transport:Connected (version 2.0, client Cisco-1.25)
+INFO:paramiko.transport:Authentication (password) successful!
+INFO:root:Number of neighbors for SNS-R2 is 2
+INFO:paramiko.transport:Connected (version 2.0, client Cisco-1.25)
+INFO:paramiko.transport:Authentication (password) successful!
+INFO:root:Number of neighbors for SNS-R3 is 2
+INFO:root:Self-healing started at :  <br/>
+INFO:root:2020-04-26 06:46:35 GMT <br/>
+INFO:paramiko.transport:Connected (version 2.0, client Cisco-1.25)
+INFO:paramiko.transport:Authentication (password) successful!
+INFO:root:Number of neighbors for SNS-R1 is 2
+INFO:paramiko.transport:Connected (version 2.0, client Cisco-1.25)
+INFO:paramiko.transport:Authentication (password) successful!
+INFO:root:Number of neighbors for SNS-R2 is 2
+INFO:paramiko.transport:Connected (version 2.0, client Cisco-1.25)
+INFO:paramiko.transport:Authentication (password) successful!
+INFO:root:Number of neighbors for SNS-R3 is 2
+INFO:root:Self-healing started at :  <br/>
+INFO:root:2020-04-26 06:52:44 GMT <br/>
+INFO:paramiko.transport:Connected (version 2.0, client Cisco-1.25)
+INFO:paramiko.transport:Authentication (password) successful!
+INFO:root:Number of neighbors for SNS-R1 is 2
+INFO:paramiko.transport:Connected (version 2.0, client Cisco-1.25)
+INFO:paramiko.transport:Authentication (password) successful!
+INFO:root:Number of neighbors for SNS-R2 is 2
+INFO:paramiko.transport:Connected (version 2.0, client Cisco-1.25)
+INFO:paramiko.transport:Authentication (password) successful!
+INFO:root:Number of neighbors for SNS-R3 is 2
+INFO:root:Self-healing started at :  <br/>
+INFO:root:2020-04-26 06:54:32 GMT <br/>
+INFO:paramiko.transport:Connected (version 2.0, client Cisco-1.25)
+INFO:paramiko.transport:Authentication (password) successful!
+INFO:root:Number of neighbors for SNS-R1 is 1
+INFO:paramiko.transport:Connected (version 2.0, client Cisco-1.25)
+INFO:paramiko.transport:Authentication (password) successful!
+INFO:root:Number of neighbors for SNS-R2 is 2
+INFO:paramiko.transport:Connected (version 2.0, client Cisco-1.25)
+INFO:paramiko.transport:Authentication (password) successful!
+INFO:root:Number of neighbors for SNS-R3 is 2
+INFO:paramiko.transport:Connected (version 2.0, client Cisco-1.25)
+INFO:paramiko.transport:Authentication (password) successful!
+INFO:root:Self-healing started at :  <br/>
+INFO:root:2020-04-26 07:00:21 GMT <br/>
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+INFO:paramiko.transport:Connected (version 2.0, client Cisco-1.25)
+INFO:paramiko.transport:Authentication (password) successful!
+INFO:root:Self-healing started at :  <br/>
+INFO:root:2020-04-26 07:00:23 GMT <br/>
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 103-914-216
+INFO:paramiko.transport:Connected (version 2.0, client Cisco-1.25)
+INFO:paramiko.transport:Authentication (password) successful!
+INFO:root:Number of neighbors for SNS-R1 is 2
+INFO:paramiko.transport:Connected (version 2.0, client Cisco-1.25)
+INFO:paramiko.transport:Authentication (password) successful!
+INFO:root:Number of neighbors for SNS-R1 is 2
+INFO:paramiko.transport:Connected (version 2.0, client Cisco-1.25)
+INFO:paramiko.transport:Authentication (password) successful!
+INFO:root:Number of neighbors for SNS-R2 is 2
+INFO:paramiko.transport:Connected (version 2.0, client Cisco-1.25)
+INFO:root:Number of neighbors for SNS-R2 is 2
+INFO:paramiko.transport:Connected (version 2.0, client Cisco-1.25)
+INFO:paramiko.transport:Authentication (password) successful!
+INFO:paramiko.transport:Authentication (password) successful!
+INFO:root:Number of neighbors for SNS-R3 is 2
+INFO:root:Number of neighbors for SNS-R3 is 2
+INFO:werkzeug:127.0.0.1 - - [26/Apr/2020 07:02:06] "[37mGET / HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Apr/2020 07:02:07] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [26/Apr/2020 07:02:08] "[37mGET /security HTTP/1.1[0m" 200 -
+INFO:root:Self-healing started at :  <br/>
+INFO:root:2020-04-26 07:02:30 GMT <br/>
+INFO:paramiko.transport:Connected (version 2.0, client Cisco-1.25)
+INFO:paramiko.transport:Authentication (password) successful!
+INFO:root:Number of neighbors for SNS-R1 is 2
+INFO:paramiko.transport:Connected (version 2.0, client Cisco-1.25)
+INFO:paramiko.transport:Authentication (password) successful!
+INFO:root:Number of neighbors for SNS-R2 is 2
+INFO:paramiko.transport:Connected (version 2.0, client Cisco-1.25)
+INFO:paramiko.transport:Authentication (password) successful!
+INFO:root:Self-healing started at :  <br/>
+INFO:root:2020-04-26 07:02:46 GMT <br/>
+INFO:paramiko.transport:Connected (version 2.0, client Cisco-1.25)
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+INFO:paramiko.transport:Authentication (password) successful!
+INFO:root:Self-healing started at :  <br/>
+INFO:root:2020-04-26 07:02:47 GMT <br/>
+INFO:paramiko.transport:Connected (version 2.0, client Cisco-1.25)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 103-914-216
+INFO:root:Number of neighbors for SNS-R3 is 2
+INFO:paramiko.transport:Authentication (password) successful!
+INFO:root:Number of neighbors for SNS-R1 is 2
+INFO:paramiko.transport:Connected (version 2.0, client Cisco-1.25)
+INFO:paramiko.transport:Authentication (password) successful!
+INFO:root:Number of neighbors for SNS-R1 is 2
+INFO:paramiko.transport:Connected (version 2.0, client Cisco-1.25)
+INFO:paramiko.transport:Authentication (password) successful!
+INFO:root:Number of neighbors for SNS-R2 is 2
+INFO:paramiko.transport:Connected (version 2.0, client Cisco-1.25)
+INFO:paramiko.transport:Authentication (password) successful!
+INFO:root:Number of neighbors for SNS-R2 is 2
+INFO:paramiko.transport:Connected (version 2.0, client Cisco-1.25)
+INFO:paramiko.transport:Authentication (password) successful!
+INFO:werkzeug:127.0.0.1 - - [26/Apr/2020 07:03:00] "[37mGET / HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Apr/2020 07:03:01] "[37mGET /security HTTP/1.1[0m" 200 -
+INFO:root:Number of neighbors for SNS-R3 is 2
+INFO:root:Number of neighbors for SNS-R3 is 2
+INFO:root:Self-healing started at :  <br/>
+INFO:root:2020-04-26 07:03:18 GMT <br/>
+INFO:paramiko.transport:Connected (version 2.0, client Cisco-1.25)
+INFO:paramiko.transport:Authentication (password) successful!

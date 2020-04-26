@@ -4,6 +4,21 @@ import re
 import subprocess
 import ipaddress
 from multiprocessing import Process
+import logging
+import os
+import datetime
+
+class Logger(object):
+    def __init__(self):
+        self.terminal = sys.stdout
+        self.log = open("selfhealinglogs.txt", "a")
+
+    def write(self, message):
+        self.terminal.write(message)
+        self.log.write(message)
+
+    def flush(self):
+        pass
 
 def read_csv():
     csvfile = open('nsot_tn.csv', 'r')
@@ -22,6 +37,7 @@ def get_wmask(ip):
     return(str(interface.ip), str(wildcard))
 
 def ospf_detect():
+    log = open("foo.txt", "a")
     j = read_csv()
     expectedNN = {}
     actualN= {}
@@ -44,18 +60,24 @@ def ospf_detect():
         #print(a)
         if len(a) == 1:
             print("No Neighbors for " + r['Hostname'])
+            log.write("No Neighbors for " + r['Hostname'] + " <br/>")
             actualN[r['Hostname']] = 0
             list_faulty_router.append(r['Hostname'])
         else:
             print("Number of neighbors for " + r['Hostname'] + " is " + str(len(a) - 1))
+#            logging.info("Number of neighbors for " + r['Hostname'] + " is " + str(len(a) - 1))
+            log.write("\nNumber of neighbors for " + r['Hostname'] + " is " + str(len(a) - 1) + " <br/>")
             actualN[r['Hostname']] = len(a) - 1
             if expectedNN[r['Hostname']] != int(len(a) - 1):
                 list_faulty_router.append(r['Hostname'])
     print(list_faulty_router)
     ospf_healing(list_faulty_router)
+    log.write("\n List of routers having OSPF misconfiguration: " + str(list_faulty_router) + " <br/>")
+    log.close()
     return(list_faulty_router)
 
 def ospf_healing(L):
+    log = open("foo.txt", "a")
     j = read_csv()
     for i in j:
         cisco = {
@@ -76,9 +98,10 @@ def ospf_healing(L):
         print(cmds)
         netconnect = ConnectHandler(**cisco)
         op= netconnect.send_config_set(cmds, cmd_verify=False)
-        print(op)
+        #print(op)
         netconnect.disconnect()
         print("configuration done on: " + i['Hostname'])
+        log.write("configuration done on: " + i['Hostname'] + " <br/>")
     return()
 
 
@@ -86,7 +109,8 @@ def sdn_healing():
     from netmiko import ConnectHandler
     import re
     import csv
-
+    
+    log = open("foo.txt", "a")
     nsot = {}
     nsot_act = {}
     count = 1
@@ -134,11 +158,13 @@ def sdn_healing():
             print(i)
             disconnected_list.append(i)
     print("Disconnected switches--->",disconnected_list)
+    log.write("Disconnected switches--->"+ str(disconnected_list) + " <br/>")
     for i in nsot.keys():
         if nsot[i]['Connected'] == 'False':
             if nsot[i]['Controller IP'] != nsot_act[i]['Controller IP'] or nsot[i]['Openflow Port'] != nsot_act[i][
                 'Openflow Port']:
                 print("There was an mismatch in the controller ip or port number hence in" + i + "self healing started")
+                log.write("There was an mismatch in the controller ip or port number hence in" + i + "self healing started" + " <br/>")
                 #output = conn.send_command_timing(
                  #   'sudo ovs-vsctl set-controller ' + i + ' tcp:' + nsot_act[i]['Controller IP'] + ':' + nsot_act[i][
                   #      'Openflow Port'])
@@ -147,6 +173,7 @@ def sdn_healing():
                 print("self-healing completed")
             elif nsot[i]['OF_Version'] != nsot_act[i]['OF_Version']:
                 print("There was an openflow version mismatch in " + i + " self-healing started")
+                log.write("There was an openflow version mismatch in " + i + " self-healing started" + " <br/>")
                 out = 'sudo ovs-vsctl set bridge ' + i + ' protocols=' + nsot_act[i]['OF_Version']
                 output = subprocess.check_output( 'ssh sns@192.168.0.2 sudo ovs-vsctl set bridge ' + i + ' protocols=' + nsot_act[i]['OF_Version'], shell=True)
                 print("self-healing completed")
@@ -156,27 +183,36 @@ def sdn_healing():
             #print("i====>",i)
             if nsot[i]['Openflow Port'] != nsot_act[i]['Openflow Port']:
                 print("There is a mismatch in the port number of " + i + " eventhough the switch is connected to the controller self-healing process started")
+                log.write("There is a mismatch in the port number of " + i + " eventhough the switch is connected to the controller self-healing process started" + " <br/>")
                 output = subprocess.check_output( 'ssh sns@192.168.0.2 sudo ovs-vsctl set-controller ' + i + ' tcp:' + nsot_act[i]['Controller IP'] + ':' + nsot_act[i]['Openflow Port'], shell=True)
                 print("self-healing completed")
+    log.close()
+
+
 
 
 def helper_sf_ospf():
+    log = open("foo.txt", "a")
+#    logging.basicConfig(filename='selfhealinglogs.txt',level=logging.INFO)
+    now = datetime.datetime.now()
+    print("Self-healing started at :  <br/>")
+#    logging.info("Self-healing started at :  <br/>")
+    log.write("Self-healing started at :  <br/>")
+    print(now.strftime("%Y-%m-%d %H:%M:%S") + " GMT <br/>")
+#    logging.info(now.strftime("%Y-%m-%d %H:%M:%S") + " GMT <br/>")
+    log.write(now.strftime("%Y-%m-%d %H:%M:%S") + " GMT <br/>")
+    log.close()
     p = Process(target= ospf_detect)
     p.start()
     p1 = Process(target= sdn_healing)
     p1.start()
 
-def helper_sf_sdn():
-    p = Process(target= sdn_healing)
-    p.start()
-
-def self_healing():
-    helper_sf_ospf()
-    helper_sf_sdn()
+#def helper_sf_sdn():
+#    p = Process(target= sdn_healing)
+#    p.start()
 
 
-
-
+#helper_sf_ospf()
 #self_healing()
 #print(L)
 #ospf_healing(L)
