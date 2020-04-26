@@ -282,7 +282,7 @@ def helper_security():
     p.start()
 
 #sh_down_int()
-#jsonfile.write(out)
+##jsonfile.write(out)
 #exception_handling(j)
 #ospf_func(j)
 #helper_hostname(j)
