@@ -4,7 +4,7 @@ import subprocess
 import os
 import csv
 import ipaddress
-#from netmiko import ConnectHandler
+from netmiko import ConnectHandler
 import json
 import time
 from multiprocessing import Process
