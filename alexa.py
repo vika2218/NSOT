@@ -34,7 +34,7 @@ def intents():
         """
     return render_template("home.html")+h
 
-@app.route('/ospf')
+@app.route('/ospf_gui')
 def ospf_gui():
    helper_ospf()
    return "Configured OSPF"
