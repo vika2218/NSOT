@@ -23,7 +23,7 @@ def homepage():
 def intents():
     h = """
        <body>
-        <a href="ospf" class="button">Configure OSPF</a>  <br/> 
+        <a href="ospf_gui" class="button">Configure OSPF</a>  <br/> 
         <a href="bgp_config" class="button">Configure Hostname</a>  <br/>  
         <a href="Back NSOT to GITHUB" class="button">Back NSOT to GITHUB</a>  
         <br/> <a href="topology" class="button">Push Flow Entries</a> <br/>  
@@ -36,7 +36,8 @@ def intents():
 
 @app.route('/ospf')
 def ospf_gui():
-
+   helper_ospf()
+   return "Configured OSPF"
 
 @ask.launch
 def start_skill():
