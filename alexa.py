@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from flask_ask import Ask, request, statement, question, session, context
 from intent import *
 from self_healing import *
@@ -8,7 +8,35 @@ ask = Ask(app, "/capstone")
 
 @app.route("/")
 def homepage():
-   return "Welcome to Smart Network System....Would you like to configure hostname or OSPF?"
+   h= """
+   <body>
+    <a href="intents" class="button">Intents</a>    
+    <a href="security" class="button">Security</a>    
+    <a href="healing" class="button">Self-Healing</a>  <br/></div>
+   </body>
+  </html>
+    """
+   return render_template("home.html") + h 
+   #return "Welcome to Smart Network System....Would you like to configure hostname or OSPF?"
+
+@app.route('/intents')
+def intents():
+    h = """
+       <body>
+        <a href="ospf" class="button">Configure OSPF</a>  <br/> 
+        <a href="bgp_config" class="button">Configure Hostname</a>  <br/>  
+        <a href="Back NSOT to GITHUB" class="button">Back NSOT to GITHUB</a>  
+        <br/> <a href="topology" class="button">Push Flow Entries</a> <br/>  
+        <a href="paths" class="button">Show disconnected switches</a> <br/> 
+        <a href="topology" class="button">Show down interface</a> </div> 
+       </body>
+      </html>
+        """
+    return render_template("home.html")+h
+
+@app.route('/ospf')
+def ospf_gui():
+
 
 @ask.launch
 def start_skill():
