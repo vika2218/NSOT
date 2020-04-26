@@ -163,14 +163,21 @@ def sdn_healing():
 def helper_sf_ospf():
     p = Process(target= ospf_detect)
     p.start()
+    p1 = Process(target= sdn_healing)
+    p1.start()
 
 def helper_sf_sdn():
     p = Process(target= sdn_healing)
     p.start()
 
+def self_healing():
+    helper_sf_ospf()
+    helper_sf_sdn()
 
 
-#L = ospf_detect ()
+
+
+#self_healing()
 #print(L)
 #ospf_healing(L)
 #sdn_healing()

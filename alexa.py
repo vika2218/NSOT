@@ -47,7 +47,7 @@ def hostname_gui():
 @app.route('/github_gui')
 def github_gui():
    helper_github()
-   return "Pushed Files to GitHub"
+   return "Pushed Files to GitHub {}".format(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
 
 @app.route('/pushflow_gui')
 def pushflow_gui():
@@ -66,7 +66,7 @@ def down_gui():
 
 @app.route('/self_gui')
 def self_gui():
-   helper_sf_sdn()
+   helper_sf_ospf()
    return "Done self healing"
 
 

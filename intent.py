@@ -165,11 +165,13 @@ def sh_down_int(**i):
         if i1.count('up') !=2:
             #print("Down-->{}".format(i1[0]))
             downIntList.append(i)
+           # downIntList.append("</br></br>")
+            
     downInt[hname]=downIntList
     print("-----")
     output=(json.dumps(downInt, indent=5))
     f= open("shut_tmp.txt","a")
-    f.write(output)
+    f.write(output+"</br></br>")
     f.close()
     #return (json.dumps(downInt, indent=5))
 
@@ -236,6 +238,7 @@ def helper_hostname():
 def helper_shut():
     j = read_csv()
     with open("shut_tmp.txt","w") as f:
+        f.write("Down interfaces: </br>")
         pass
     process_list=[]
     for i in j:
@@ -245,9 +248,11 @@ def helper_shut():
     for i in process_list:
         i.join()
     with open("shut_tmp.txt","r") as f:
-        print(f.read())
+    #f= open("shut_tmp.txt", "r")
+        #print(f.read())
         a = f.read()
     os.remove("shut_tmp.txt")
+    print("Down Interfaces: \n", a)
     return (str(a))
 
 def helper_pushfe():
