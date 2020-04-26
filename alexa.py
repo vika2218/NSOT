@@ -114,8 +114,8 @@ def sdn_intent():
 
 @ask.intent("github")
 def backup_github():
-   hi_text = 'files has been backed up to github'
-   #helper_pushfe()
+   hi_text = 'files have been backed up to github'
+   helper_github()
    return question(hi_text)
 
 @ask.intent("sdn_disconnected_sw")

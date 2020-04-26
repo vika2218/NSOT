@@ -26,4 +26,4 @@ Number of neighbors for SNS-R3 is 1 <br/>
 Number of neighbors for SNS-R1 is 1 <br/>
 Number of neighbors for SNS-R2 is 2 <br/>
 Number of neighbors for SNS-R3 is 1 <br/>
- List of routers having OSPF misconfiguration: ['SNS-R1', 'SNS-R3'] <br/>Self-healing started at :  <br/>2020-04-26 07:20:35 GMT <br/>Disconnected switches--->[] <br/>Self-healing started at :  <br/>2020-04-26 07:20:37 GMT <br/>Disconnected switches--->[] <br/>
+ List of routers having OSPF misconfiguration: ['SNS-R1', 'SNS-R3'] <br/>Self-healing started at :  <br/>2020-04-26 07:20:35 GMT <br/>Disconnected switches--->[] <br/>Self-healing started at :  <br/>2020-04-26 07:20:37 GMT <br/>Disconnected switches--->[] <br/>Disconnected switches--->[] <br/>Disconnected switches--->[] <br/>Disconnected switches--->['s2'] <br/>There was an mismatch in the controller ip or port number hence ins2self healing started <br/>Disconnected switches--->[] <br/>Disconnected switches--->['s2'] <br/>There was an mismatch in the controller ip or port number hence in s2 self healing started <br/>

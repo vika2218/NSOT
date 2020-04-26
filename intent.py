@@ -135,9 +135,12 @@ def hostname(**i):
         netconnect=ConnectHandler(**cisco)
         op=netconnect.send_config_set(cmds)
         print("op---->",op)
+        cmds="sh run | sec hostname"
+        op= netconnect.send_command(cmds)
+        print("output=", op.split(" ")[1])
         netconnect.disconnect()
         print("-----")
-        return 0
+        return (op.split(" ")[1])
 
 
 def sh_down_int(**i):
@@ -164,7 +167,7 @@ def sh_down_int(**i):
         i1= (str(i).split(" "))
         if i1.count('up') !=2:
             #print("Down-->{}".format(i1[0]))
-            downIntList.append(i)
+            downIntList.append(i[0:16]+ i[50:])
            # downIntList.append("</br></br>")
             
     downInt[hname]=downIntList
