@@ -12,7 +12,7 @@ def homepage():
    <body>
     <a href="intents" class="button">Intents</a>    
     <a href="security" class="button">Security</a>    
-    <a href="healing" class="button">Self-Healing</a>  <br/></div>
+    <a href="self_gui" class="button">Self-Healing</a>  <br/></div>
    </body>
   </html>
     """
@@ -28,7 +28,7 @@ def intents():
         <a href="github_gui" class="button">Back NSOT to GITHUB</a>  
         <br/> <a href="pushflow_gui" class="button">Push Flow Entries</a> <br/>  
         <a href="dis_gui" class="button">Show disconnected switches</a> <br/> 
-        <a href="topology" class="button">Show down interface</a> </div> 
+        <a href="down_gui" class="button">Show down interface</a> </div> 
        </body>
       </html>
         """
@@ -59,10 +59,15 @@ def dis_gui():
    a = sdn_disconnected_sw()
    return a
 
-@app.route('/ospf_g1ui')
-def ospf_g1ui():
-   helper_ospf()
-   return "Configured OSPF"
+@app.route('/down_gui')
+def down_gui():
+   a = helper_shut()
+   return a
+
+@app.route('/self_gui')
+def self_gui():
+   helper_sf_sdn()
+   return "Done self healing"
 
 
 

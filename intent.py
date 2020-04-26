@@ -209,7 +209,7 @@ def sdn_disconnected_sw():
         if nsot[i]['Connected'] == 'False':
             disconnected_list.append(i.rstrip())
     print("Disconnected switches--->",disconnected_list)
-    return("Disconnected switches--->",disconnected_list)
+    return("Disconnected switches--->" + str(disconnected_list))
     #conn.disconnect()
 
 def helper_ospf():
@@ -246,7 +246,9 @@ def helper_shut():
         i.join()
     with open("shut_tmp.txt","r") as f:
         print(f.read())
+        a = f.read()
     os.remove("shut_tmp.txt")
+    return (str(a))
 
 def helper_pushfe():
     p = Process(target= sdn_intent)
