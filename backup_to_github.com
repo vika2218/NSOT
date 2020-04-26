@@ -1,3 +1,4 @@
+
 import subprocess
 cmds=["git add .", "git commit -m .", "git push origin master"]
 for i in cmds:
@@ -7,5 +8,5 @@ for i in cmds:
 	
 	except:
 		pass
-	print("\nNSOT pushed successfully to GitHub")
+print("\nNSOT pushed successfully to GitHub")
 	

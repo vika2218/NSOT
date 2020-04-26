@@ -251,6 +251,16 @@ def helper_pushfe():
     p = Process(target= sdn_intent)
     p.start()
 
+def helper_github():
+    cmds=["git add .", "git commit -m .", "git push origin master"]
+    for i in cmds:
+        try:
+                op= subprocess.check_output(i, shell=True)
+                print(op)
+
+        except:
+                pass
+    print("\nNSOT pushed successfully to GitHub")
 
 #sh_down_int()
 #jsonfile.write(out)
