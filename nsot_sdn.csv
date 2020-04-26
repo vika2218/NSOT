@@ -1,0 +1,5 @@
+Hostname,Controller IP,Controller port,OpenFLow Version
+s1,192.168.0.3,6653,13
+s2,192.168.0.3,6653,13
+s3,192.168.0.3,6653,13
+s4,192.168.0.3,6653,13
