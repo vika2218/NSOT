@@ -70,7 +70,9 @@ def ospf_detect():
             actualN[r['Hostname']] = len(a) - 1
             if expectedNN[r['Hostname']] != int(len(a) - 1):
                 list_faulty_router.append(r['Hostname'])
-    print(list_faulty_router)
+    print("Misconfigured Routers: ",list_faulty_router)
+    if list_faulty_router == []:
+        print("No errors detected in OSPF for any router")
     ospf_healing(list_faulty_router)
     log.write("\n List of routers having OSPF misconfiguration: " + str(list_faulty_router) + " <br/>")
     log.close()
@@ -95,7 +97,7 @@ def ospf_healing(L):
 
         shutnoshut = ['int fa1/0', 'sh', 'no sh', 'ip ospf mtu-ignore', 'int fa1/1', 'sh', 'no sh', 'ip ospf mtu-ignore', 'int fa2/0', 'sh', 'no sh', 'ip ospf mtu-ignore']
         cmds.extend(shutnoshut)
-        print(cmds)
+        #print(cmds)
         netconnect = ConnectHandler(**cisco)
         op= netconnect.send_config_set(cmds, cmd_verify=False)
         #print(op)

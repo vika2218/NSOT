@@ -103,7 +103,7 @@ def ospf_intent():
 @ask.intent("Selfhealing")
 def self_healing():
    hi_text = 'Selfhealing has been started'
-   helper_sf_sdn()
+   helper_sf_ospf()
    return question(hi_text)
 
 @ask.intent("sdn_intent")
