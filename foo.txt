@@ -58,4 +58,23 @@ Number of neighbors for SNS-R3 is 2 <br/>
 Number of neighbors for SNS-R1 is 1 <br/>
 Number of neighbors for SNS-R2 is 1 <br/>
 Number of neighbors for SNS-R3 is 2 <br/>
- List of routers having OSPF misconfiguration: ['SNS-R1', 'SNS-R2'] <br/>
+ List of routers having OSPF misconfiguration: ['SNS-R1', 'SNS-R2'] <br/>Self-healing started at :  <br/>2020-04-27 00:11:00 GMT <br/>Disconnected switches--->[] <br/>configuration done on: SNS-R1 <br/>configuration done on: SNS-R2 <br/>
+Number of neighbors for SNS-R1 is 1 <br/>
+Number of neighbors for SNS-R2 is 1 <br/>
+Number of neighbors for SNS-R3 is 2 <br/>
+ List of routers having OSPF misconfiguration: ['SNS-R1', 'SNS-R2'] <br/>Self-healing started at :  <br/>2020-04-27 00:15:43 GMT <br/>Disconnected switches--->[] <br/>
+Number of neighbors for SNS-R1 is 2 <br/>
+Number of neighbors for SNS-R2 is 2 <br/>
+Number of neighbors for SNS-R3 is 2 <br/>
+ List of routers having OSPF misconfiguration: [] <br/>Self-healing started at :  <br/>2020-04-27 02:06:17 GMT <br/>Disconnected switches--->[] <br/>
+Number of neighbors for SNS-R1 is 1 <br/>
+Number of neighbors for SNS-R2 is 1 <br/>
+Number of neighbors for SNS-R3 is 2 <br/>Self-healing started at :  <br/>2020-04-27 02:20:12 GMT <br/>Disconnected switches--->[] <br/>There is a mismatch in the port number of s2 eventhough the switch is connected to the controller self-healing process started <br/>configuration done on: SNS-R1 <br/>configuration done on: SNS-R2 <br/>
+Number of neighbors for SNS-R1 is 1 <br/>
+Number of neighbors for SNS-R2 is 1 <br/>
+Number of neighbors for SNS-R3 is 2 <br/>
+ List of routers having OSPF misconfiguration: ['SNS-R1', 'SNS-R2'] <br/>Self-healing started at :  <br/>2020-04-27 02:22:56 GMT <br/>Disconnected switches--->[] <br/>There is a mismatch in the port number of s2 eventhough the switch is connected to the controller self-healing process started <br/>
+Number of neighbors for SNS-R1 is 2 <br/>
+Number of neighbors for SNS-R2 is 2 <br/>
+Number of neighbors for SNS-R3 is 2 <br/>
+ List of routers having OSPF misconfiguration: [] <br/>

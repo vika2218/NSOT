@@ -78,7 +78,8 @@ def read_csv():
     return(reader)
 
 
-def exception_handling(j):
+def exception_handling():
+    j= read_csv()
 
     for i in j:
         #print(i["Management IP"])
@@ -131,13 +132,13 @@ def hostname(**i):
         }
         cmds=[]
         cmds.append("hostname {}".format(i['Hostname'] ))
-        print(cmds)
+        #print(cmds)
         netconnect=ConnectHandler(**cisco)
         op=netconnect.send_config_set(cmds)
-        print("op---->",op)
+        #print("op---->",op)
         cmds="sh run | sec hostname"
         op= netconnect.send_command(cmds)
-        print("output=", op.split(" ")[1])
+        print("Hostname configured  on=", op.split(" ")[1])
         netconnect.disconnect()
         print("-----")
         return (op.split(" ")[1])
@@ -280,7 +281,7 @@ def helper_github():
 def helper_security():
     p = Process(target=security)
     p.start()
-
+exception_handling()
 #sh_down_int()
 ##jsonfile.write(out)
 #exception_handling(j)

@@ -28,12 +28,13 @@ def host():
     results = ''
     for i in j:
         a = hostname(**i)
-        print(a)
+        #print(a)
         if a == i['Hostname']:
-            print('pass')
+            #print('pass')
             results = results + ' ' + i['Hostname'] + ':Pass,'
         else:
             results = results + ' ' + i['Hostname'] + ':Fail,'
+    print(results)
     return results
 
 def get_dpid():
@@ -82,4 +83,5 @@ def flow_test():
 
 
 flow_test()
-
+reachability_test()
+host()
