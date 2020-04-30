@@ -105,6 +105,7 @@ def int_shutdown():
 def ospf_intent():
    bye_text = 'Configured OSPF'
    helper_ospf()
+   time.sleep(9)
    return question(bye_text)
 
 @ask.intent("Selfhealing")

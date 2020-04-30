@@ -228,8 +228,8 @@ def helper_ospf():
         p = Process(target= ospf_func, kwargs= i)
         p.start()
         process_list.append(p)
-    for i in process_list:
-        i.join()
+#    for i in process_list:
+#        i.join()
 
 
 def helper_hostname():
