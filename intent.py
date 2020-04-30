@@ -267,7 +267,7 @@ def helper_pushfe():
     p.start()
 
 def helper_github():
-    cmds=["git add .", "git commit -m .", "git push origin master"]
+    cmds=["git add .", "git commit -m .", "git push origin master --force"]
     for i in cmds:
         try:
                 op= subprocess.check_output(i, shell=True)
