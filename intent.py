@@ -239,8 +239,8 @@ def helper_hostname():
         p = Process(target= hostname, kwargs= i)
         p.start()
         process_list.append(p)
-    for i in process_list:
-        i.join()
+#    for i in process_list:
+#        i.join()
 
 def helper_shut():
     j = read_csv()

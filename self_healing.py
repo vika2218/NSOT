@@ -165,7 +165,7 @@ def sdn_healing():
         if nsot[i]['Connected'] == 'False':
             if nsot[i]['Controller IP'] != nsot_act[i]['Controller IP'] or nsot[i]['Openflow Port'] != nsot_act[i][
                 'Openflow Port']:
-                print("There was an mismatch in the controller ip or port number hence in " + i + " self healing started")
+                print("Mismatched controller ip on " + i + "\nself healing started")
                 log.write("There was an mismatch in the controller ip or port number hence in " + i + " self healing started" + " <br/>")
                 #output = conn.send_command_timing(
                  #   'sudo ovs-vsctl set-controller ' + i + ' tcp:' + nsot_act[i]['Controller IP'] + ':' + nsot_act[i][

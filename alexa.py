@@ -4,6 +4,7 @@ from intent import *
 import datetime
 from self_healing import *
 import subprocess
+import time
 
 app = Flask(__name__)
 ask = Ask(app, "/capstone")
@@ -76,6 +77,11 @@ def security():
     helper_security()
     return "Security module started on the SDN Controller"
 
+@app.route('/robot')
+def robot():
+    f= open("templates/log.html", "r").read()
+    return f
+
 
 @ask.launch
 def start_skill():
@@ -86,6 +92,7 @@ def start_skill():
 def host_headlines():
    hi_text = 'Hostname configured successfully.'
    helper_hostname()
+   time.sleep(8)
    return question(hi_text)
 
 @ask.intent("ShutdownINT")

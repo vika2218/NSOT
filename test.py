@@ -82,6 +82,6 @@ def flow_test():
 
 
 
-flow_test()
-reachability_test()
-host()
+#flow_test()
+#reachability_test()
+#host()

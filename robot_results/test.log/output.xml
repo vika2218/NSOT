@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.1.2 (Python 3.6.9 on linux)" generated="20200427 02:59:34.748" rpa="false">
+<suite id="s1" name="Test" source="/home/sns/sns/test.robot">
+<test id="s1-t1" name="Testing Hostname Configuration">
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${\n}</arg>
+</arguments>
+<status status="PASS" starttime="20200427 02:59:35.304" endtime="20200427 02:59:35.305"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Hostname configuration and verifiication started</arg>
+</arguments>
+<status status="PASS" starttime="20200427 02:59:35.306" endtime="20200427 02:59:35.307"></status>
+</kw>
+<kw name="Host" library="test">
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20200427 03:00:08.309" level="INFO">Hostname configured  on= SNS-R1
+-----
+Hostname configured  on= SNS-R2
+-----
+Hostname configured  on= SNS-R3
+-----
+ SNS-R1:Pass, SNS-R2:Pass, SNS-R3:Pass,</msg>
+<msg timestamp="20200427 03:00:08.309" level="INFO">${result} =  SNS-R1:Pass, SNS-R2:Pass, SNS-R3:Pass,</msg>
+<status status="PASS" starttime="20200427 02:59:35.308" endtime="20200427 03:00:08.309"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${result}</arg>
+</arguments>
+<status status="PASS" starttime="20200427 03:00:08.310" endtime="20200427 03:00:08.310"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Hostname function verification done! Results are as shown above</arg>
+</arguments>
+<status status="PASS" starttime="20200427 03:00:08.310" endtime="20200427 03:00:08.311"></status>
+</kw>
+<status status="PASS" starttime="20200427 02:59:35.301" endtime="20200427 03:00:08.311" critical="yes"></status>
+</test>
+<test id="s1-t2" name="Testing Reachability">
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${\n}</arg>
+</arguments>
+<status status="PASS" starttime="20200427 03:00:08.313" endtime="20200427 03:00:08.313"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Reachability test started</arg>
+</arguments>
+<status status="PASS" starttime="20200427 03:00:08.313" endtime="20200427 03:00:08.314"></status>
+</kw>
+<kw name="Reachability Test" library="test">
+<assign>
+<var>${op2}</var>
+</assign>
+<msg timestamp="20200427 03:00:08.424" level="INFO">op is --&gt; 0
+op is --&gt; 0
+op is --&gt; 0</msg>
+<msg timestamp="20200427 03:00:08.425" level="INFO">${op2} = 0</msg>
+<status status="PASS" starttime="20200427 03:00:08.314" endtime="20200427 03:00:08.425"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${op2}</arg>
+<arg>0</arg>
+</arguments>
+<status status="PASS" starttime="20200427 03:00:08.426" endtime="20200427 03:00:08.428"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Reachability test completed</arg>
+</arguments>
+<status status="PASS" starttime="20200427 03:00:08.428" endtime="20200427 03:00:08.429"></status>
+</kw>
+<status status="PASS" starttime="20200427 03:00:08.312" endtime="20200427 03:00:08.429" critical="yes"></status>
+</test>
+<test id="s1-t3" name="Verifying Flow Entries (SDN)">
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${\n}</arg>
+</arguments>
+<status status="PASS" starttime="20200427 03:00:08.431" endtime="20200427 03:00:08.436"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Flow entries configuration and verifiication started</arg>
+</arguments>
+<status status="PASS" starttime="20200427 03:00:08.436" endtime="20200427 03:00:08.437"></status>
+</kw>
+<kw name="Flow Test" library="test">
+<msg timestamp="20200427 03:00:08.710" level="INFO">DPID: ['1', '2', '3', '4']
+{'1': 0, '2': 0, '3': 0, '4': 0}
+{'1': 4, '2': 4, '3': 4, '4': 4}</msg>
+<status status="PASS" starttime="20200427 03:00:08.437" endtime="20200427 03:00:08.710"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Flow entries configuration and verifiication completed</arg>
+</arguments>
+<status status="PASS" starttime="20200427 03:00:08.711" endtime="20200427 03:00:08.711"></status>
+</kw>
+<status status="PASS" starttime="20200427 03:00:08.430" endtime="20200427 03:00:08.712" critical="yes"></status>
+</test>
+<status status="PASS" starttime="20200427 02:59:34.749" endtime="20200427 03:00:08.713"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0">Critical Tests</stat>
+<stat pass="3" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="3" fail="0" id="s1" name="Test">Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
