@@ -11,14 +11,11 @@ from multiprocessing import Process
 import requests
 
 
-#csvfile = open('nsot_tn.csv', 'r')
-#fieldnames = ("Hostname","Management IP","Username","Password","Router ID","Process", "Networks")
-#global j
-#j = csv.DictReader( csvfile, fieldnames)
-
-
 
 def sdn_intent():
+    """
+    This function is reading CSV file for SDN network configuration and creating a dictionary which contains all the information about the SDN switches. This function takes help of push_flow_entry function to push flow entries given in CSV file.
+    """
     with open('nsot_flowentries.csv', newline='') as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
@@ -41,6 +38,9 @@ def sdn_intent():
     return 0
 
 def push_flow_entry(controller_ip,protocol,dpid,priority,in_port,nw_src,nw_dst,dl_type,nw_proto,tp_dst_port,action):
+    """
+    This function actually pushes the flow entries in the SDN switches using API calls for RYU controller. API calls are made using requests library of Python.
+    """
 
     flow_entry_payload = {
         "dpid":   dpid ,
@@ -72,6 +72,9 @@ def push_flow_entry(controller_ip,protocol,dpid,priority,in_port,nw_src,nw_dst,d
 
 
 def read_csv():
+    """
+    This function reads the CSV file for traditional network configuration and creates a dictionary.
+    """
     csvfile = open('nsot_tn.csv', 'r')
     fieldnames = ("Hostname","Management IP","Username","Password","Router ID","Process", "Networks")
     reader = csv.DictReader( csvfile, fieldnames)
@@ -79,6 +82,9 @@ def read_csv():
 
 
 def exception_handling():
+    """
+    This function  checks whether the management IPs present in CSV for traditional network are valid or not.
+    """
     j= read_csv()
 
     for i in j:
@@ -91,6 +97,9 @@ def exception_handling():
     return 0
 
 def get_wmask(ip):
+    """
+    This function return value of IP subnet mask (10.0.0.1 255.255.255.0) for input (10.0.0.1/24) 
+    """
     interface = ipaddress.IPv4Interface(ip)
     subnet = str(interface.netmask)
     wildcard = []
@@ -102,6 +111,10 @@ def get_wmask(ip):
     return(str(interface.ip), str(wildcard))
 
 def ospf_func(**i):
+    """
+    This function is used to configure ospf
+
+    """
         cisco = {
             'device_type': 'cisco_ios',
             'host': i['Management IP'],
@@ -124,6 +137,10 @@ def ospf_func(**i):
 
 
 def hostname(**i):
+    """
+    This function is used to configure hostname
+    """
+
         cisco = {
             'device_type': 'cisco_ios',
             'host': i['Management IP'],
@@ -132,10 +149,8 @@ def hostname(**i):
         }
         cmds=[]
         cmds.append("hostname {}".format(i['Hostname'] ))
-        #print(cmds)
         netconnect=ConnectHandler(**cisco)
         op=netconnect.send_config_set(cmds)
-        #print("op---->",op)
         cmds="sh run | sec hostname"
         op= netconnect.send_command(cmds)
         print("Hostname configured  on=", op.split(" ")[1])
@@ -145,31 +160,26 @@ def hostname(**i):
 
 
 def sh_down_int(**i):
+    """
+    returns down interfaces from routers
+    """
     downInt={}
-
-    
     cisco = {
         'device_type': 'cisco_ios',
         'host': i['Management IP'],
         'username': i['Username'],
         'password': i['Password'],
         }
-    #cmds=[]
-    #cmds.append("hostname {}".format(i['Hostname'] ))
     cmd="sh ip int b"
-    #print(cmds)
     netconnect=ConnectHandler(**cisco)
     op= netconnect.send_command(cmd)
     downIntList=[]
     hname=str(i["Hostname"])
-    #print("Down Interfaces for router {}\n".format(i['Hostname']))
     op1= (op.split("\n")[1:])
     for i in op1:
         i1= (str(i).split(" "))
         if i1.count('up') !=2:
-            #print("Down-->{}".format(i1[0]))
             downIntList.append(i[0:16]+ i[50:])
-           # downIntList.append("</br></br>")
             
     downInt[hname]=downIntList
     print("-----")
@@ -177,19 +187,16 @@ def sh_down_int(**i):
     f= open("shut_tmp.txt","a")
     f.write(output+"</br></br>")
     f.close()
-    #return (json.dumps(downInt, indent=5))
 
 
 def sdn_disconnected_sw():
+    """
+    returns disconnected switches
+    """
     nsot = {}
     c = {'device_type': 'linux', 'username': 'sns', 'password': 'sns', 'ip': '192.168.0.2'}
 
-#    conn = ConnectHandler(**c)
-    #print("Connected")
-#    output = conn.send_command('sudo ovs-vsctl show')
     output= subprocess.check_output("ssh sns@192.168.0.2 sudo ovs-vsctl show", shell=True)
-    #output = conn.send_command_timing('sns')
-    #print("output----->",output )
     output = str(output).rstrip()
     op = output.split("Bridge")
     for i in range(1, len(op)):
@@ -201,7 +208,6 @@ def sdn_disconnected_sw():
         nsot[p1] = {}
         nsot[p1]['Controller IP'] = ip[0]
         nsot[p1]['Openflow Port'] = port[0]
-      #  output = conn.send_command_timing('sudo ovs-ofctl show ' + p1)
         if 'is_connected:' in op[i]:
             nsot[p1]['Connected'] = 'True'
         else:
@@ -216,7 +222,6 @@ def sdn_disconnected_sw():
             disconnected_list.append(i.rstrip())
     print("Disconnected switches--->",disconnected_list)
     return("Disconnected switches--->" + str(disconnected_list))
-    #conn.disconnect()
 def security():
     subprocess.call("ssh sns@192.168.0.3 sudo python3 security.py &", shell=True)
     print("Security module started on SDN Controller")
@@ -228,8 +233,6 @@ def helper_ospf():
         p = Process(target= ospf_func, kwargs= i)
         p.start()
         process_list.append(p)
-#    for i in process_list:
-#        i.join()
 
 
 def helper_hostname():
@@ -239,8 +242,6 @@ def helper_hostname():
         p = Process(target= hostname, kwargs= i)
         p.start()
         process_list.append(p)
-#    for i in process_list:
-#        i.join()
 
 def helper_shut():
     j = read_csv()
@@ -255,8 +256,6 @@ def helper_shut():
     for i in process_list:
         i.join()
     with open("shut_tmp.txt","r") as f:
-    #f= open("shut_tmp.txt", "r")
-        #print(f.read())
         a = f.read()
     os.remove("shut_tmp.txt")
     print("Down Interfaces: \n", a)
@@ -282,15 +281,3 @@ def helper_security():
     p = Process(target=security)
     p.start()
 exception_handling()
-#sh_down_int()
-##jsonfile.write(out)
-#exception_handling(j)
-#ospf_func(j)
-#helper_hostname(j)
-#helper_ospf(j)
-#sh_disconnected_switches()
-#helper_shut(j)
-#hostname(j)
-#csvfile.close()
-#sdn_intent()
-#sdn_disconnected_sw()

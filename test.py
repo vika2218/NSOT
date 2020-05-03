@@ -7,12 +7,16 @@ import json
 import requests
 import time
 
+
+# Function to Read CSV File
 def read_csv():
     csvfile = open('nsot_tn.csv', 'r')
     fieldnames = ("Hostname","Management IP","Username","Password","Router ID","Process", "Networks")
     reader = csv.DictReader( csvfile, fieldnames)
     return(reader)
 
+
+# Function to Test Reachability of Management IPs
 def reachability_test():
     j = read_csv()
     for i in j:
@@ -23,6 +27,8 @@ def reachability_test():
     else:
         return str(0)
 
+
+# Function to Test Configuration of Hostname Intent
 def host():
     j = read_csv()
     results = ''
@@ -30,13 +36,14 @@ def host():
         a = hostname(**i)
         #print(a)
         if a == i['Hostname']:
-            #print('pass')
             results = results + ' ' + i['Hostname'] + ':Pass,'
         else:
             results = results + ' ' + i['Hostname'] + ':Fail,'
     print(results)
     return results
 
+
+# Function to Get DPIDs
 def get_dpid():
     filename = "nsot_sdn.csv" ###
     dpid_list = []
@@ -50,14 +57,16 @@ def get_dpid():
         print("DPID: {}".format(dpid_list) )
     return dpid_list
 
+
+# Function to Get Number of Flow Entries Installed
 def get_flow_entries(dpid):
     r= requests.get("http://192.168.0.3:8080/stats/flow/{}" .format(dpid))
-    #r= requests.get("http://192.168.56.102:8080/stats/flow/1")
     for switch,flow_entries in r.json().items():
-        #print(len(flow_entries))
         number = len(flow_entries)
     return number
 
+
+# Function to Test PushFlowEntries Intent
 def flow_test():
     dpid_list = get_dpid()
     dpid_dict_before_push = {}
@@ -71,17 +80,9 @@ def flow_test():
     print(dpid_dict_before_push)
 
     sdn_intent()
-
-
-    # number of flow-entries after pushing the entries from csv = number_2
     for dpid in dpid_list:
+        # number of flow-entries after pushing the entries from csv = number_2
         dpid_dict_after_push.update({ dpid : get_flow_entries(dpid) } )
         # dpid_dict_after_push[dpid].append(get_flow_entries(dpid))
-
     print(dpid_dict_after_push)
 
-
-
-#flow_test()
-#reachability_test()
-#host()
